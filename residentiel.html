@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service résidentiel - J. Ouellet Électrique</title>
+    <link rel="icon" type="image/x-icon" href="/images/flash.png">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,12 @@
     <header>
         <div class="container header-content">
             <img src="/images/J-Ouellet_Electrique_gold.png" alt="Logo J. Ouellet Électrique" class="logo">
-            <nav>
+            <button id="menuToggle" class="menu-toggle" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="#">Services</a></li>
@@ -21,29 +27,61 @@
                     <li><a href="#">Projets</a></li>
                 </ul>
             </nav>
-            <a href="#" class="btn-quote">Obtenir une soumission</a>
+            <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
         </div>
     </header>
     <main>
         <section class="hero hero-residentiel">
             <div class="hero-overlay"></div>
             <div class="hero-content">
+                <div class="back-btn-wrapper">
+                    <a href="index.html" class="btn-back">Retour</a>
+                </div>
                 <h1>SERVICE RÉSIDENTIEL</h1>
             </div>
         </section>
         <section class="services-page">
             <h2>Nos services résidentiels</h2>
-            <ul class="services-list">
-                <li>Branchement spa/piscine</li>
-                <li>Borne de recharge</li>
-                <li>Mise à niveau entrée électrique</li>
-                <li>Agrandissement de base garage</li>
-                <li>Système de caméras et télécommunication</li>
-                <li>Génératrice</li>
-                <li>Énergie solaire</li>
-            </ul>
-            <div class="back-btn-wrapper">
-                <a href="index.html" class="btn-back">Retour</a>
+            <p class="services-intro">Des installations sécuritaires pour votre maison, du branchement de spa à l’énergie solaire.</p>
+            <div class="service-card-grid">
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Branchement spa/piscine</h3>
+                    <p>Raccordement conforme pour profiter rapidement de vos installations de détente.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Borne de recharge</h3>
+                    <p>Installation de bornes pour véhicules électriques.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Mise à niveau entrée électrique</h3>
+                    <p>Augmentez la capacité de votre entrée en toute sécurité.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Agrandissement de base garage</h3>
+                    <p>Ajout de circuits lors de vos agrandissements.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Système de caméras et télécommunication</h3>
+                    <p>Solutions complètes de surveillance et câblage.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Génératrice</h3>
+                    <p>Connexion et préparation pour génératrice de secours.</p>
+                </div>
+                <div class="service-detail-card">
+                    <img src="/images/check-mark.png" alt="">
+                    <h3>Énergie solaire</h3>
+                    <p>Intégration de panneaux solaires résidentiels.</p>
+                </div>
+            </div>
+            <div class="soumi-btn-wrapper">
+                <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
             </div>
         </section>
     </main>
@@ -75,7 +113,7 @@
                     <a href="#"><img src="/images/flash.png" alt=""> Services</a>
                     <a href="#"><img src="/images/question.png" alt=""> À propos</a>
                     <a href="#"><img src="/images/mail.png" alt=""> Contact</a>
-                    <a href="#"><img src="/images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
+                    <a href="soumission.html"><img src="/images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
                 </nav>
             </div>
         </div>
@@ -86,5 +124,12 @@
             </div>
         </div>
     </footer>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

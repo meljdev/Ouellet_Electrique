@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J. Ouellet Électrique inc.</title>
+    <link rel="icon" type="image/x-icon" href="/images/flash.png">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,17 +17,28 @@
 <body>
     <header>
         <div class="container header-content">
-            <img src="/images/J-Ouellet_Electrique_gold.png" alt="Logo J. Ouellet Électrique" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Projets</a></li>
-                </ul>
-            </nav>
-            <a href="#" class="btn-quote">Obtenir une soumission</a>
-        </div>
+    <img src="/images/J-Ouellet_Electrique_gold.png" alt="Logo J. Ouellet Électrique" class="logo">
+    <button id="menuToggle" class="menu-toggle" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <nav id="mainNav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Projets</a></li>
+            <!-- Le bouton "mobile only" -->
+            <li class="nav-btn-quote-mobile">
+                <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Le bouton "desktop only" -->
+    <a href="soumission.html" class="btn-quote btn-quote-desktop">Obtenir une soumission</a>
+</div>
+
     </header>
 
     <main>
@@ -118,11 +130,10 @@
                             alt="Localisation"></span>Laurentides (Thérèse-De Blainville)
                 </div>
                 <div class="secteur-card"><span class="secteur-icone"><img src="/images/maps-and-flags.png"
-                            alt="Localisation"></span>Mont-Laurier, Rivière-Rouge et les
-                    environs</div>
-                <div class="secteur-card"><span class="secteur-icone"><img src="/images/maps-and-flags.png"
                             alt="Localisation"></span>St-Sauveur, Mont Tremblant, Ste-Adèle et
                     les environs</div>
+                <div class="secteur-card"><span class="secteur-icone"><img src="/images/maps-and-flags.png"
+                            alt="Localisation"></span>Grand Montréal</div>
             </div>
             <div class="btn-wrapper">
                 <a class="btn-secteur" href="#contact">Nous contacter</a>
@@ -155,7 +166,7 @@
                     <img src="/images/arrow-right.png" alt="Suivant" class="arrow arrow-right">
                 </button>
             </div>
-            </section>
+        </section>
     </main>
 
     <footer class="footer">
@@ -186,14 +197,15 @@
                     <a href="#"><img src="/images/flash.png" alt=""> Services</a>
                     <a href="#"><img src="/images/question.png" alt=""> À propos</a>
                     <a href="#"><img src="/images/mail.png" alt=""> Contact</a>
-                    <a href="#"><img src="/images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
+                    <a href="soumission.html"><img src="/images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
                 </nav>
             </div>
         </div>
         <div class="footer-bottom">
             <hr class="footer-separator">
             <div class="footer-copyright">
-                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca" target="_blank">meljdev</a>.
+                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca"
+                    target="_blank">meljdev</a>.
             </div>
         </div>
     </footer>
@@ -207,6 +219,13 @@
         document.querySelector('.slider-next').onclick = () => {
             slider.scrollBy({ left: 350, behavior: 'smooth' });
         };
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+        });
     </script>
 
 </body>
