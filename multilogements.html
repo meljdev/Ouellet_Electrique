@@ -22,13 +22,35 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Projets</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" id="servicesDropdownBtn">Services
+                            <span class="dropdown-arrow">
+                                <!-- SVG flèche vers le bas -->
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+                                    style="vertical-align: middle;">
+                                    <path d="M5 8l5 5 5-5" stroke="#151515" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residentiel.html">Résidentiel</a></li>
+                            <li><a href="industriel.html">Industriel</a></li>
+                            <li><a href="multilogements.html">Multilogements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <!-- Le bouton "mobile only" -->
+                    <li class="nav-btn-quote-mobile">
+                        <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
+                    </li>
                 </ul>
             </nav>
-            <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
+            <!-- Le bouton "desktop only" -->
+            <a href="soumission.html" class="btn-quote btn-quote-desktop">Obtenir une soumission</a>
         </div>
+
     </header>
     <main>
         <section class="hero hero-multilogements">
@@ -149,6 +171,50 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Pour mobile/clic : toggle dropdown on click
+        document.addEventListener('DOMContentLoaded', function () {
+            const servicesBtn = document.getElementById('servicesDropdownBtn');
+            const navDropdown = servicesBtn?.closest('.nav-dropdown');
+            const dropdown = servicesBtn?.nextElementSibling;
+
+            if (servicesBtn && dropdown && navDropdown) {
+                servicesBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const isOpen = navDropdown.classList.contains('open');
+                    navDropdown.classList.toggle('open', !isOpen);
+                    dropdown.style.display = isOpen ? 'none' : 'block';
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!servicesBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                        navDropdown.classList.remove('open');
+                        dropdown.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+    </script>
+    <script>
+  let wasOpen = false;
+  window.addEventListener('scroll', function () {
+    const nav = document.getElementById('mainNav');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      wasOpen = true;
+    }
+  }, { passive: true });
+
+  // Optionnel : referme aussi au resize, pour plus de robustesse
+  window.addEventListener('resize', function () {
+    const nav = document.getElementById('mainNav');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+    }
+  });
+</script>
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const mainNav = document.getElementById('mainNav');

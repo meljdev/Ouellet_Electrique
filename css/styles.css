@@ -5,6 +5,7 @@
 html,
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Polices */
@@ -53,7 +54,7 @@ header {
   padding: 12px 32px 12px 32px; /* padding réduit à droite */
   margin-top: 0;
   box-shadow: 1px 3px 0px 0px var(--gold); /* Ombre or 3D côté droit/bas */
-  max-width: 880px; /* Largeur du header/nav plus étroite */
+  max-width: 900px; /* Largeur du header/nav plus étroite */
 }
 
 .logo {
@@ -134,63 +135,249 @@ nav a:hover {
   display: none;
 }
 
+/* Dropdown de base */
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%; left: 0;
+  min-width: 170px;
+  background: #fff9f1;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.09);
+  border-radius: 1.1em;
+  z-index: 200;
+  padding: 10px 0;
+  flex-direction: column;
+  gap: 0;
+  border: 2px solid var(--gold);
+}
+.dropdown-menu li {
+  width: 100%;
+}
+.dropdown-menu a {
+  color: #151515;
+  padding: 9px 20px;
+  font-size: 1.1rem;
+  display: block;
+  border-radius: .8em;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Fjalla One", Arial, sans-serif;
+  transition: background 0.15s;
+}
+.dropdown-menu a:hover {
+  background: #f6e5c7;
+  color: var(--gold);
+}
+
+/* Hover pour desktop */
+@media (min-width: 701px) {
+  .nav-dropdown:hover > .dropdown-menu,
+  .nav-dropdown:focus-within > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile : le dropdown prend toute la largeur du menu */
 @media (max-width: 700px) {
-  .nav-btn-quote {
-    display: block;
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    min-width: unset;
+    padding: 0;
+  }
+  .dropdown-menu a {
+    font-size: 1rem;
+    padding: 10px 12px 10px 32px;
+    color: #151515;
+    background: transparent;
+  }
+}
+
+/* Flèche dans "Services" */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 7px;
+  transition: transform 0.18s;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+/* Optionnel: fait pivoter la flèche quand ouvert */
+.nav-dropdown.open > a .dropdown-arrow,
+.nav-dropdown:focus-within > a .dropdown-arrow,
+.nav-dropdown:hover > a .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Flèche plus petite sur mobile */
+@media (max-width: 700px) {
+  .dropdown-arrow svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2.1;
+  }
+}
+
+
+@media (max-width: 700px) {
+  /* Header padding sur les côtés */
+  header {
     margin-top: 10px;
-    text-align: center;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background: transparent;
+    box-sizing: border-box;
   }
-  .header-content > .btn-quote {
-    display: none;
+  /* Header bar */
+  .header-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding: 7px 10px;
+    max-height: 70px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 2.4rem;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff9f1;
+    border-style: solid;
+    border-width: 4px 8px 8px 4px;
+    border-color: var(--gold);
+    box-shadow: 1px 3px 0px 0px var(--gold);
   }
-  .nav-btn-quote .btn-quote {
-    width: 90%;
-    margin: 12px auto 0 auto;
+  /* Logo */
+  .header-content .logo {
+    width: 80px;
+    height: 52px;
+    margin: 0 10px 0 20px;
+    max-width: 60vw;
+    object-fit: contain;
     display: block;
-    font-size: 1.12rem;
-    padding: 12px 0;
   }
+  /* Hamburger */
   .menu-toggle {
     display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    z-index: 30;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
+  .menu-toggle .bar {
+    width: 24px;
+    height: 3px;
+    margin: 5px 0;
+    background: #151515;
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* MENU MOBILE, RECTANGLE FLOTTANT */
   #mainNav {
+    position: fixed;
+    left: 50%;
+    top: 68px; /* Ajuste selon la hauteur de ton header */
+    transform: translateX(-50%);
+    width: 92vw;
+    max-width: 480px;
+    background: #fff9f1;
+    border-radius: 2rem;
+    box-shadow: 0 8px 28px rgba(36,50,58,0.09);
+    z-index: 100;
     display: none;
-    width: 100%;
+    padding: 34px 0 20px 0;
+    border: 4px solid var(--gold);
+    border-top: none;
+    animation: fadeIn 0.23s ease;
   }
   #mainNav.open {
     display: block;
+    margin-top: 30px;
   }
   #mainNav ul {
     flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
+    gap: 24px;
+    padding: 0 28px;
+    margin: 0;
+    list-style: none;
   }
-  .btn-quote-desktop {
-    display: none;
+  #mainNav li {
+    width: 100%;
+    text-align: left;
   }
+  nav a {
+    font-size: 1.48rem;
+    font-weight: 700;
+    padding: 0;
+    color: #151515;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    display: block;
+    border-radius: 0.6rem;
+    background: transparent;
+  }
+  nav a:hover {
+    color: var(--gold);
+    background: #f6e5c7;
+  }
+
+  /* Cache les boutons desktop */
+  .btn-quote-desktop,
+  .header-content > .btn-quote {
+    display: none !important;
+  }
+
+  /* Bouton "Obtenir une soumission" dans le menu mobile */
   .nav-btn-quote-mobile {
     display: block;
+    width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .nav-btn-quote-mobile .btn-quote {
-    width: 90%;
-    margin: 12px auto 0 auto;
+    width: 88%;
+    margin: 16px auto 0 auto;
     display: block;
-    font-size: 1.12rem;
-    padding: 12px 0;
+    font-size: 1.18rem;
+    font-weight: 700;
+    padding: 14px 0;
+    border-radius: 2rem;
+    background: var(--gold);
+    color: #151515;
+    border: 3px solid #151515;
+    box-shadow: 2px 4px 0px 0px #151515;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    position: relative;
+    top: 1px;
+    text-align: center;
+  }
+  .nav-btn-quote-mobile .btn-quote:hover {
+    background: #151515;
+    color: var(--gold);
+    border-color: #151515;
+  }
+
+  /* Animation fade-in */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(-50%) scale(0.97);}
+    100% { opacity: 1; transform: translateX(-50%) scale(1);}
   }
 }
 
 /* Responsive */
 @media (max-width: 950px) {
-  .header-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    padding: 10px 18px;
-    max-width: 95vw;
-  }
   .logo {
     margin: 0 0 8px 0;
   }
@@ -200,7 +387,7 @@ nav a:hover {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 620px;
+  min-height: 700px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -283,24 +470,16 @@ footer {
 }
 
 @media (max-width: 700px) {
-  .container {
-    padding: 0 12px;
-  }
   .hero h1 {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
   .hero-content {
     padding-bottom: 34px;
-    padding-top: 70px;
+    padding-top: 0px;
     margin-left: 5%;
   }
   .hero {
-    min-height: 420px;
-  }
-  .header-content {
-    padding: 10px 5px;
-    align-items: flex-start;
-    max-height: 50px;
+    min-height: 500px;
   }
   .btn-quote {
     font-size: 1rem;
@@ -395,6 +574,11 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .services {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 20%;
+    }
   .services-cards {
     max-width: 100%;
     padding: 0 8px;
@@ -408,13 +592,14 @@ footer {
     border-radius: 26px;
   }
   .service-label {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 10px 16px;
     border-radius: 2rem;
   }
   .services-title {
-    font-size: 1.28rem;
-    margin-bottom: 18px;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
   }
 }
 
@@ -504,28 +689,140 @@ footer {
   line-height: 1.33;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .about-content {
-    flex-direction: column;
-    border-radius: 18px;
-    max-width: 99vw;
-    border-width: 3px 7px 10px 3px;
-    box-shadow: 4px 7px 0px 0px #111, 0 6px 16px 0 rgba(0, 0, 0, 0.13);
-  }
-  .about-img img {
-    min-height: 120px;
-    max-height: 180px;
-  }
-  .about-text {
-    padding: 16px 9px 18px 13px;
-    font-size: 0.99rem;
+  .about {
+    padding: 34px 5% 38px 5%;
+    margin-top: -1px;
   }
   .about-title {
-    font-size: 1.35rem;
-    margin-bottom: 16px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+  }
+  .about-content {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-radius: 18px;
+    max-width: 98vw;
+    border-width: 2.5px 5px 7px 2.5px;
+    box-shadow: 3px 6px 0px 0px #111, 0 4px 14px 0 rgba(0,0,0,0.13);
+    padding: 0;
+    max-height: unset;
+    min-width: 0;
+  }
+  .about-img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+  }
+  .about-img img {
+    min-height: 200px;
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+    border-right: none;
+    display: block;
+  }
+  .about-text {
+    background: var(--gold);
+    color: #111;
+    padding: 18px 12px 20px 12px;
+    border-radius: 0 0 14px 14px;
+    font-size: 1.02rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-text h3 {
+    font-size: 1.28rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  .about-text p {
+    font-size: 1.07rem;
+    font-weight: 500;
+    line-height: 1.42;
   }
 }
+
+.bande-logos {
+  background: #eef0f5; /* OU adapte à la couleur de ton design */
+  padding: 22px 0;
+  margin: 44px 0 44px 0;
+  box-shadow: 0 2px 14px 0 #1111;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 90px;  /* adapte selon la taille de tes logos */
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 58px; /* espace entre logos */
+  align-items: center;
+  animation: scroll-left 18s linear infinite;
+}
+
+.marquee-content img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  background: transparent;
+  padding: 0 12px;
+  transition: filter 0.18s;
+}
+
+.logo-rbq {
+  height: 100px !important;  /* ou la taille désirée, ex : 80px, 90px... */
+  width: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.marquee-content img:hover {
+  filter: grayscale(0%) drop-shadow(0 1px 2px #c9a46d88) brightness(1.1);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 700px) {
+  .bande-logos {
+    padding: 10px 0;
+    border-radius: 1.1em;
+    margin: 40px 0 60px 0;
+  }
+  .marquee {
+    height: 44px;
+  }
+  .marquee-content img {
+    height: 33px;
+    padding: 0 8px;
+  }
+  .marquee-content {
+    gap: 25px;
+  }
+}
+
 
 .secteurs {
   background: #fff;
@@ -592,6 +889,40 @@ footer {
   display: block;
 }
 
+/* Responsive grille secteurs */
+@media (max-width: 1100px) {
+  .secteurs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 14px;
+  }
+}
+@media (max-width: 700px) {
+  .secteurs {
+    padding: 0 2vw;
+  }
+  .secteurs-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .secteurs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 98vw;
+  }
+  .secteur-card {
+    max-width: 98vw;
+    width: 100%;
+    font-size: 1.02rem;
+    padding: 0 14px;
+    height: auto;
+    min-height: 62px;
+    box-shadow: 0 4px 0 #111;
+    margin: 0 auto;
+  }
+}
+
+
 /* --- BOUTON --- */
 .btn-secteur {
   display: inline-block;
@@ -618,45 +949,6 @@ footer {
 .secteurs .btn-wrapper {
   text-align: center;
   margin-top: 28px;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 1200px) {
-  .secteurs-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 10px;
-    max-width: 98vw;
-  }
-  .secteur-card {
-    max-width: 97vw;
-    font-size: 0.99rem;
-    padding: 9px 10px 9px 10px;
-  }
-  .secteurs-title {
-    font-size: 1.4rem;
-    margin-bottom: 18px;
-  }
-}
-@media (max-width: 700px) {
-  .secteurs-grid {
-    grid-template-columns: 1fr;
-    gap: 9px 0;
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
-  .secteur-card {
-    font-size: 0.98rem;
-    padding: 8px 10px 8px 10px;
-    max-width: 98vw;
-    width: 100%;
-  }
-  .btn-secteur {
-    font-size: 1rem;
-    padding: 10px 26px;
-  }
-  .secteurs .btn-wrapper {
-    margin-top: 18px;
-  }
 }
 
 .projet-priorite {
@@ -713,7 +1005,7 @@ footer {
     min-height: 180px;
   }
   .projet-priorite-content h2 {
-    font-size: 9vw;
+    font-size: 3rem;
     padding: 0 10px;
   }
 }
@@ -807,45 +1099,95 @@ footer {
   transform: rotate(180deg);
 }
 
-/* Responsive */
 @media (max-width: 1150px) {
-  .projets-slider {
-    width: 98vw;
-    max-width: 99vw;
-    gap: 20px;
-  }
-  .projet-card {
-    flex: 0 0 250px;
-    height: 250px;
-    border-radius: 30px;
-  }
-  .slider-btn {
-    width: 46px;
-    height: 46px;
-    margin: 0 10px;
-  }
-  .arrow {
-    width: 22px;
-    height: 22px;
-  }
-}
-@media (max-width: 700px) {
-  .projets-slider {
-    gap: 13px;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 4vw;
-  }
-  .projet-card {
-    flex: 0 0 175px;
-    height: 175px;
-    border-radius: 19px;
+  .projets {
+    padding: 38px 0 50px 0;
   }
   .projets-title {
-    font-size: 1.55rem;
-    margin-bottom: 22px;
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+  .projets-slider {
+    width: 99vw;
+    max-width: 99vw;
+    gap: 18px;
+    padding: 0 10px;
+  }
+  .projet-card {
+    flex: 0 0 210px;
+    height: 210px;
+    border-radius: 24px;
+  }
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+    margin: 0 5px;
+  }
+  .arrow {
+    width: 17px;
+    height: 17px;
   }
 }
+
+@media (max-width: 700px) {
+  .projets {
+    padding: 22px 5% 30px 1%;
+  }
+  .projets-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 0 4vw;
+  }
+  .projets-slider-wrapper {
+    max-width: 100vw;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .projets-slider {
+    gap: 10px;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0 2vw;
+  }
+  .projet-card {
+    flex: 0 0 62vw;      /* Utilise un pourcentage pour un effet slider mobile */
+    max-width: 340px;
+    min-width: 138px;
+    height: 38vw;
+    min-height: 120px;
+    max-height: 210px;
+    border-radius: 12vw;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,0.09);
+  }
+  .slider-btn {
+    width: 33px;
+    height: 33px;
+    margin: 0 1vw;
+    box-shadow: 0 1px 4px #0001;
+    min-width: 33px;
+    min-height: 33px;
+  }
+  .arrow {
+    width: 15px;
+    height: 15px;
+  }
+  /* Optionnel : cache les boutons slider si tu veux tout tactile */
+  .slider-btn { display: none; } 
+}
+
+/* Astuce : pour éviter que le slider touche les bords sur mobile/tablette */
+@media (max-width: 400px) {
+  .projets-slider {
+    padding: 0 1vw;
+  }
+  .projet-card {
+    flex: 0 0 90vw;
+    border-radius: 10vw;
+    height: 46vw;
+  }
+}
+
 
 /* --- FOOTER --- */
 .footer {
@@ -1006,23 +1348,29 @@ footer {
 /* --- RESPONSIVE --- */
 @media (max-width: 950px) {
   .footer {
-    padding: 28px 10px 0 10px;
-    max-width: 99vw;
+    padding: 28px 14px 0 14px;
+    max-width: 100vw;
     border-radius: 2em 2em 0 0;
     border-top-width: 5px;
     border-left-width: 5px;
     border-right-width: 5px;
+    width: 100vw;
   }
   .footer-main {
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
+    align-items: flex-start;
   }
   .footer-info-menu {
     gap: 18px;
     margin-top: 18px;
+    width: 100%;
   }
   .footer-logo {
     width: 130px;
+  }
+  .footer-social {
+    gap: 10px;
   }
 }
 
@@ -1032,19 +1380,55 @@ footer {
     border-top-width: 4px;
     border-left-width: 4px;
     border-right-width: 4px;
+   margin-left: 2vw;
+    margin-right: 2vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    max-width: 100vw;
+    width: auto;
   }
-  .footer-info {
-    font-size: 1rem;
-    grid-template-columns: 80px 1fr;
-  }
-  .footer-menu a {
-    font-size: 1rem;
+  .footer-main {
+    gap: 12px;
+    align-items: stretch;
   }
   .footer-logo {
-    width: 85px;
+    width: 150px;
+    margin-bottom: 5px;
+  }
+  .footer-desc {
+    font-size: 0.97rem;
+  }
+  .footer-info {
+    font-size: 0.94rem;
+    grid-template-columns: 76px 1fr;
+    gap: 7px 10px;
+  }
+  .footer-label {
+    padding-right: 7px;
+    border-right-width: 3px;
+    font-size: 1rem;
+  }
+  .footer-value {
+    font-size: 1.02rem;
+  }
+  .footer-menu a {
+    font-size: 0.97rem;
+    gap: 7px;
+  }
+  .footer-menu img {
+    width: 22px;
+    height: 22px;
   }
   .footer-bottom {
-    margin-top: 18px;
+    margin-top: 13px;
+  }
+  .footer-separator {
+    border-top-width: 2.5px;
+    margin-bottom: 7px;
+  }
+  .footer-copyright {
+    font-size: 0.90rem;
+    margin-bottom: 11px;
   }
 }
 
@@ -1062,7 +1446,7 @@ footer {
     no-repeat;
 }
 .services-page {
-  padding: 60px 0;
+  padding: 60px 5%;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -1242,3 +1626,43 @@ footer {
   color: var(--gold);
   border-color: #151515;
 }
+
+@media (max-width: 700px) {
+  .soumission-section {
+    max-width: 98vw;
+    width: 100%;
+    padding: 30px 4vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .soumission-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+  .soumission-form {
+    gap: 11px;
+  }
+  .soumission-form label {
+    font-size: 0.99rem;
+  }
+  .soumission-form input,
+  .soumission-form select,
+  .soumission-form textarea {
+    font-size: 0.99rem;
+    padding: 10px 10px;
+    border-radius: 0.41em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .soumission-form textarea {
+    min-height: 80px;
+    font-size: 0.99rem;
+  }
+  .btn-form {
+    width: 98%;
+    padding: 12px 0;
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+}
+

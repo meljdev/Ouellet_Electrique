@@ -17,27 +17,43 @@
 <body>
     <header>
         <div class="container header-content">
-    <img src="/images/J-Ouellet_Electrique_gold.png" alt="Logo J. Ouellet Électrique" class="logo">
-    <button id="menuToggle" class="menu-toggle" aria-label="Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <nav id="mainNav">
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Projets</a></li>
-            <!-- Le bouton "mobile only" -->
-            <li class="nav-btn-quote-mobile">
-                <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
-            </li>
-        </ul>
-    </nav>
-    <!-- Le bouton "desktop only" -->
-    <a href="soumission.html" class="btn-quote btn-quote-desktop">Obtenir une soumission</a>
-</div>
+            <img src="/images/J-Ouellet_Electrique_gold.png" alt="Logo J. Ouellet Électrique" class="logo">
+            <button id="menuToggle" class="menu-toggle" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" id="servicesDropdownBtn">Services
+                            <span class="dropdown-arrow">
+                                <!-- SVG flèche vers le bas -->
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+                                    style="vertical-align: middle;">
+                                    <path d="M5 8l5 5 5-5" stroke="#151515" stroke-width="2.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residentiel.html">Résidentiel</a></li>
+                            <li><a href="industriel.html">Industriel</a></li>
+                            <li><a href="multilogements.html">Multilogements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <!-- Le bouton "mobile only" -->
+                    <li class="nav-btn-quote-mobile">
+                        <a href="soumission.html" class="btn-quote">Obtenir une soumission</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Le bouton "desktop only" -->
+            <a href="soumission.html" class="btn-quote btn-quote-desktop">Obtenir une soumission</a>
+        </div>
 
     </header>
 
@@ -51,7 +67,7 @@
             </div>
         </section>
 
-        <section class="services">
+        <section class="services" id="services">
             <h2 class="services-title">
                 Un service personnalisé<br>
                 en fonction de vos projets
@@ -78,7 +94,7 @@
             </div>
         </section>
 
-        <section class="about">
+        <section class="about" id="a-propos">
             <h2 class="about-title">À propos</h2>
             <div class="about-content">
                 <div class="about-img">
@@ -94,9 +110,29 @@
                 </div>
             </div>
         </section>
+        <section class="bande-logos">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="/images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
+                    <img src="/images/Logo_apchq.png" alt="APCHQ" />
+                    <img src="/images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
+                    <!-- Répète une fois pour effet continu -->
+                    <img src="/images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
+                    <img src="/images/Logo_apchq.png" alt="APCHQ" />
+                    <img src="/images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
+                    <img src="/images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
+                    <img src="/images/Logo_apchq.png" alt="APCHQ" />
+                    <img src="/images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
+                    <img src="/images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
+                    <img src="/images/Logo_apchq.png" alt="APCHQ" />
+                    <img src="/images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
+                </div>
+            </div>
+        </section>
+
         <section class="secteurs">
             <h2 class="secteurs-title">Nos secteurs</h2>
-            <div class="secteurs-grid">
+            <div class="secteurs-grid" id="secteursGrid">
                 <!-- Une card par secteur -->
                 <div class="secteur-card"><span class="secteur-icone"><img src="/images/maps-and-flags.png"
                             alt="Localisation"></span>
@@ -135,6 +171,9 @@
                 <div class="secteur-card"><span class="secteur-icone"><img src="/images/maps-and-flags.png"
                             alt="Localisation"></span>Grand Montréal</div>
             </div>
+            <div class="btn-wrapper" id="btnVoirPlusWrapper">
+                <button class="btn-secteur" id="btnVoirPlus" type="button">Voir plus</button>
+            </div>
             <div class="btn-wrapper">
                 <a class="btn-secteur" href="#contact">Nous contacter</a>
             </div>
@@ -147,7 +186,7 @@
             </div>
         </section>
 
-        <section class="projets">
+        <section class="projets" id="projets">
             <h2 class="projets-title">Quelques projets</h2>
             <div class="projets-slider-wrapper">
                 <button class="slider-btn slider-prev" aria-label="Projet précédent">
@@ -197,7 +236,8 @@
                     <a href="#"><img src="/images/flash.png" alt=""> Services</a>
                     <a href="#"><img src="/images/question.png" alt=""> À propos</a>
                     <a href="#"><img src="/images/mail.png" alt=""> Contact</a>
-                    <a href="soumission.html"><img src="/images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
+                    <a href="soumission.html"><img src="/images/check-mark.png" alt=""> <span
+                            class="soumission">Soumission</span></a>
                 </nav>
             </div>
         </div>
@@ -209,6 +249,80 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Pour mobile/clic : toggle dropdown on click
+        document.addEventListener('DOMContentLoaded', function () {
+            const servicesBtn = document.getElementById('servicesDropdownBtn');
+            const navDropdown = servicesBtn?.closest('.nav-dropdown');
+            const dropdown = servicesBtn?.nextElementSibling;
+
+            if (servicesBtn && dropdown && navDropdown) {
+                servicesBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const isOpen = navDropdown.classList.contains('open');
+                    navDropdown.classList.toggle('open', !isOpen);
+                    dropdown.style.display = isOpen ? 'none' : 'block';
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!servicesBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                        navDropdown.classList.remove('open');
+                        dropdown.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+    </script>
+
+    <script>
+        // Pagination JS pour 5 par 5
+        document.addEventListener('DOMContentLoaded', function () {
+            const NB_PAR_PAGE = 5;
+            const grid = document.getElementById('secteursGrid');
+            const cards = Array.from(grid.getElementsByClassName('secteur-card'));
+            const btn = document.getElementById('btnVoirPlus');
+            let page = 1;
+
+            function updateDisplay() {
+                cards.forEach((card, i) => {
+                    card.style.display = i < page * NB_PAR_PAGE ? 'flex' : 'none';
+                });
+                // Affiche le bouton seulement s'il reste des éléments cachés
+                if (page * NB_PAR_PAGE >= cards.length) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = '';
+                }
+            }
+
+            btn.addEventListener('click', function () {
+                page += 1;
+                updateDisplay();
+            });
+
+            // Initial
+            updateDisplay();
+        });
+    </script>
+    <script>
+        let wasOpen = false;
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                wasOpen = true;
+            }
+        }, { passive: true });
+
+        // Optionnel : referme aussi au resize, pour plus de robustesse
+        window.addEventListener('resize', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+            }
+        });
+    </script>
 
 
     <script>
