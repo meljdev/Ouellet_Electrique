@@ -116,16 +116,7 @@
                     <img src="images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
                     <img src="images/Logo_apchq.png" alt="APCHQ" />
                     <img src="images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
-                    <!-- Répète une fois pour effet continu -->
-                    <img src="images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
-                    <img src="images/Logo_apchq.png" alt="APCHQ" />
-                    <img src="images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
-                    <img src="images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
-                    <img src="images/Logo_apchq.png" alt="APCHQ" />
-                    <img src="images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
-                    <img src="images/regie-du-batiment-du-quebec-rbq-vector-logo.svg" alt="RBQ" class="logo-rbq" />
-                    <img src="images/Logo_apchq.png" alt="APCHQ" />
-                    <img src="images/CMEQ_LOGO_couleur_rgb.png" alt="CMEQ" />
+
                 </div>
             </div>
         </section>
@@ -274,48 +265,56 @@
         });
 
     </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const marquee = document.querySelector('.marquee-content');
+    // Si tu as peu de logos, triple la séquence
+    marquee.innerHTML += marquee.innerHTML + marquee.innerHTML;
+  });
+</script>
+
 
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    function getNbParPage() {
-        if (window.innerWidth < 700) return 5;         // mobile
-        if (window.innerWidth < 1150) return 12;        // tablette/small desktop
-        return 12;                                     // desktop large
-    }
+        document.addEventListener('DOMContentLoaded', function () {
+            function getNbParPage() {
+                if (window.innerWidth < 700) return 5;         // mobile
+                if (window.innerWidth < 1150) return 12;        // tablette/small desktop
+                return 12;                                     // desktop large
+            }
 
-    let NB_PAR_PAGE = getNbParPage();
-    const grid = document.getElementById('secteursGrid');
-    const cards = Array.from(grid.getElementsByClassName('secteur-card'));
-    const btn = document.getElementById('btnVoirPlus');
-    let page = 1;
+            let NB_PAR_PAGE = getNbParPage();
+            const grid = document.getElementById('secteursGrid');
+            const cards = Array.from(grid.getElementsByClassName('secteur-card'));
+            const btn = document.getElementById('btnVoirPlus');
+            let page = 1;
 
-    function updateDisplay() {
-        NB_PAR_PAGE = getNbParPage(); // Update on resize
-        cards.forEach((card, i) => {
-            card.style.display = i < page * NB_PAR_PAGE ? 'flex' : 'none';
+            function updateDisplay() {
+                NB_PAR_PAGE = getNbParPage(); // Update on resize
+                cards.forEach((card, i) => {
+                    card.style.display = i < page * NB_PAR_PAGE ? 'flex' : 'none';
+                });
+                if (page * NB_PAR_PAGE >= cards.length) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = '';
+                }
+            }
+
+            btn.addEventListener('click', function () {
+                page += 1;
+                updateDisplay();
+            });
+
+            // Gère le changement de largeur de l'écran (responsive)
+            window.addEventListener('resize', function () {
+                page = 1; // recommence à la première page à chaque resize pour éviter des bugs d'index
+                updateDisplay();
+            });
+
+            // Initial
+            updateDisplay();
         });
-        if (page * NB_PAR_PAGE >= cards.length) {
-            btn.style.display = 'none';
-        } else {
-            btn.style.display = '';
-        }
-    }
-
-    btn.addEventListener('click', function () {
-        page += 1;
-        updateDisplay();
-    });
-
-    // Gère le changement de largeur de l'écran (responsive)
-    window.addEventListener('resize', function () {
-        page = 1; // recommence à la première page à chaque resize pour éviter des bugs d'index
-        updateDisplay();
-    });
-
-    // Initial
-    updateDisplay();
-});
-</script>
+    </script>
 
     <script>
         let wasOpen = false;
