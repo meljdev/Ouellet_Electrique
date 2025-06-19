@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service industriel - J. Ouellet Électrique</title>
+    <title>Service commercial - J. Ouellet Électrique</title>
     <link rel="icon" type="image/x-icon" href="images/flash.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container header-content">
@@ -35,7 +39,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="residentiel.html">Résidentiel</a></li>
-                            <li><a href="industriel.html">Industriel</a></li>
+                            <li><a href="commercial.html">Commercial</a></li>
                             <li><a href="multilogements.html">Multilogements</a></li>
                         </ul>
                     </li>
@@ -59,42 +63,42 @@
                 <div class="back-btn-wrapper">
                     <a href="index.html" class="btn-back">Retour</a>
                 </div>
-                <h1>SERVICE INDUSTRIEL</h1>
+                <h1>SERVICE COMMERCIAL</h1>
             </div>
         </section>
         <section class="services-page">
-            <h2>Nos services industriels</h2>
+            <h2>Nos services commerciaux</h2>
             <p class="services-intro">Nous accompagnons les entreprises dans tous leurs projets électriques.</p>
             <div class="service-card-grid">
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
                     <h3>Base building commercial</h3>
-                    <p>Électricité de base pour bâtiments commerciaux.</p>
+                    <p>Électricité de base pour le bâtiment, incluant distribution, raccordement et mise en service.</p>
                 </div>
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
-                    <h3>Commerce spécialisé</h3>
-                    <p>Solutions adaptées à vos activités spécialisées.</p>
+                    <h3>Projet clé en main</h3>
+                    <p>Prise en charge complète de vos projets commerciaux, du devis à la mise en service.</p>
                 </div>
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
-                    <h3>Rénovation commerciale</h3>
-                    <p>Mise à niveau et adaptation d'espaces existants.</p>
+                    <h3>Mise à niveau électrique</h3>
+                    <p>Modernisation électrique selon les normes et subventions en vigueur.</p>
                 </div>
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
-                    <h3>Planche d’éclairage DEL subventionné</h3>
-                    <p>Éclairage DEL efficace avec subventions disponibles.</p>
+                    <h3>Plancher chauffant radiant</h3>
+                    <p>Systèmes de plancher chauffant adaptés à toutes les surfaces commerciales.</p>
                 </div>
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
-                    <h3>Rénovation complète</h3>
-                    <p>Prise en charge complète de vos projets industriels.</p>
+                    <h3>Rénovation complète commerciale</h3>
+                    <p>Réaménagement global de vos installations électriques.</p>
                 </div>
                 <div class="service-detail-card">
                     <img src="images/check-mark.png" alt="">
-                    <h3>Mise à niveau éclairage DEL subventionné</h3>
-                    <p>Modernisation de l'éclairage avec programme de subvention.</p>
+                    <h3>Éclairage DEL subventionné</h3>
+                    <p>Mise à niveau de l’éclairage avec subventions gouvernementales disponibles.</p>
                 </div>
             </div>
             <div class="soumi-btn-wrapper">
@@ -130,14 +134,16 @@
                     <a href="#"><img src="images/flash.png" alt=""> Services</a>
                     <a href="#"><img src="images/question.png" alt=""> À propos</a>
                     <a href="#"><img src="images/mail.png" alt=""> Contact</a>
-                    <a href="soumission.html"><img src="images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
+                    <a href="soumission.html"><img src="images/check-mark.png" alt=""> <span
+                            class="soumission">Soumission</span></a>
                 </nav>
             </div>
         </div>
         <div class="footer-bottom">
             <hr class="footer-separator">
             <div class="footer-copyright">
-                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca" target="_blank">meljdev</a>.
+                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca"
+                    target="_blank">meljdev</a>.
             </div>
         </div>
     </footer>
@@ -167,23 +173,23 @@
 
     </script>
     <script>
-  let wasOpen = false;
-  window.addEventListener('scroll', function () {
-    const nav = document.getElementById('mainNav');
-    if (nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      wasOpen = true;
-    }
-  }, { passive: true });
+        let wasOpen = false;
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                wasOpen = true;
+            }
+        }, { passive: true });
 
-  // Optionnel : referme aussi au resize, pour plus de robustesse
-  window.addEventListener('resize', function () {
-    const nav = document.getElementById('mainNav');
-    if (nav.classList.contains('open')) {
-      nav.classList.remove('open');
-    }
-  });
-</script>
+        // Optionnel : referme aussi au resize, pour plus de robustesse
+        window.addEventListener('resize', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+            }
+        });
+    </script>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -193,4 +199,5 @@
         });
     </script>
 </body>
+
 </html>
