@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container header-content">
@@ -114,6 +118,8 @@
                 <p class="footer-desc">
                     Entreprise familiale ayant à coeur le service client et le travail bien fait.
                 </p>
+                <p class="rbq">R.B.Q.: 5839-6482</p>
+
                 <div class="footer-social">
                     <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt="Facebook"></a>
                     <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
@@ -135,14 +141,16 @@
                     <a href="index.html#services"><img src="images/flash.png" alt=""> Services</a>
                     <a href="index.html#a-propos"><img src="images/question.png" alt=""> À propos</a>
                     <a href="#"><img src="images/mail.png" alt=""> Contact</a>
-                    <a href="soumission.html"><img src="images/check-mark.png" alt=""> <span class="soumission">Soumission</span></a>
+                    <a href="soumission.html"><img src="images/check-mark.png" alt=""> <span
+                            class="soumission">Soumission</span></a>
                 </nav>
             </div>
         </div>
         <div class="footer-bottom">
             <hr class="footer-separator">
             <div class="footer-copyright">
-                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca" target="_blank">meljdev</a>.
+                © 2025 J. Ouellet Électrique Inc. Tous droits réservés. Fait par <a href="www.meljdev.ca"
+                    target="_blank">meljdev</a>.
             </div>
         </div>
     </footer>
@@ -172,23 +180,23 @@
 
     </script>
     <script>
-  let wasOpen = false;
-  window.addEventListener('scroll', function () {
-    const nav = document.getElementById('mainNav');
-    if (nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      wasOpen = true;
-    }
-  }, { passive: true });
+        let wasOpen = false;
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                wasOpen = true;
+            }
+        }, { passive: true });
 
-  // Optionnel : referme aussi au resize, pour plus de robustesse
-  window.addEventListener('resize', function () {
-    const nav = document.getElementById('mainNav');
-    if (nav.classList.contains('open')) {
-      nav.classList.remove('open');
-    }
-  });
-</script>
+        // Optionnel : referme aussi au resize, pour plus de robustesse
+        window.addEventListener('resize', function () {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+            }
+        });
+    </script>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -198,4 +206,5 @@
         });
     </script>
 </body>
+
 </html>
